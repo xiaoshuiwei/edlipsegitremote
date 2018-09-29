@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.xsw.dao.StudentMapper">
+  	<select id="selectAllStudent" resultType="com.xsw.pojo.Student">
+  		SELECT*from s_user
+  	</select>
+  	
+  	
+  	
+  	<insert id="addStudent" parameterType="Student">
+  		insert into s_user
+  		values(null,#{usernum},#{userpassword},#{status})
+  	</insert>
+  	
+  	<update id="updateStudent" parameterType="Student">
+  	update s_user set usernum=#{usernum},userpassword =#{userpassword} 
+  	where id=#{id}
+  	</update>
+  	
+  	<!-- 删除 -->
+  	<delete id="deleteStudent" parameterType="Object[]">
+  	delete from s_user
+  	where id in
+  <foreach collection="array" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+</foreach>
+  	</delete>
+  	
+  	<!-- 登录的sql -->
+  	<select id="getUserListByMap" resultType="Student" parameterType="Student">
+  	select*from s_user
+  	where usernum=#{usernum} and userpassword=#{userpassword} and status=#{status}
+  	
+  	</select>
+  	
+  </mapper>
