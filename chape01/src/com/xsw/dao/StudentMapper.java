@@ -8,8 +8,9 @@ import com.xsw.pojo.Student;
 
 
 public interface StudentMapper {
-		//添加
+		//添加12312
 		int addStudent(Student stu);
+		
 		//修改
 		int updateStudent(Student stu);
 		//删除
