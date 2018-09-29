@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import com.xsw.pojo.Student;
-
+//hello
 
 
 public interface StudentMapper {
-		//添加12312
+		//测试git更新
 		int addStudent(Student stu);
 		
 		//修改
